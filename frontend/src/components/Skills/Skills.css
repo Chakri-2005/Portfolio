@@ -1,0 +1,87 @@
+.skills-section {
+  background: var(--bg-secondary);
+}
+
+.skills-circle-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.skill-circle-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  width: 90px;
+  opacity: 0;
+  transform: scale(0.8) translateY(20px);
+}
+
+.skill-circle-item.animate-pop-in {
+  animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes popIn {
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.skill-icon-wrapper {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+  position: relative;
+  box-shadow: var(--shadow-card);
+}
+
+/* Hover effects using custom property --brand-color */
+.skill-circle-item:hover .skill-icon-wrapper {
+  color: var(--brand-color);
+  border-color: var(--brand-color);
+  box-shadow: 0 8px 24px var(--brand-color);
+  transform: translateY(-5px);
+  background: var(--bg-card-hover);
+}
+
+.skill-name {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  text-align: center;
+  transition: color 0.3s;
+}
+
+.skill-circle-item:hover .skill-name {
+  color: var(--brand-color);
+}
+
+@media (max-width: 640px) {
+  .skills-circle-grid {
+    gap: 1.5rem;
+  }
+  .skill-circle-item {
+    width: 75px;
+  }
+  .skill-icon-wrapper {
+    width: 60px;
+    height: 60px;
+    font-size: 1.6rem;
+  }
+  .skill-name {
+    font-size: 0.75rem;
+  }
+}

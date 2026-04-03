@@ -1,0 +1,192 @@
+.education-section { background: var(--bg-primary); }
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.timeline-item {
+  display: flex;
+  gap: 2rem;
+  position: relative;
+}
+
+/* Connector */
+.timeline-connector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.timeline-dot {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  font-size: 1.2rem;
+  z-index: 1;
+  transition: all 0.3s;
+  flex-shrink: 0;
+}
+
+.timeline-item.current .timeline-dot {
+  background: var(--gradient-hero);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 0 24px var(--accent-glow);
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.timeline-line {
+  width: 2px;
+  flex: 1;
+  background: linear-gradient(to bottom, var(--accent), transparent);
+  margin: 8px 0;
+  min-height: 40px;
+}
+
+/* Card */
+.education-card {
+  flex: 1;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 20px;
+  padding: 1.75rem;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.education-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  right: 0; height: 3px;
+  background: var(--gradient-hero);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.education-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card), 0 0 24px var(--accent-glow);
+}
+
+.education-card:hover::before { opacity: 1; }
+
+.timeline-item.current .education-card {
+  border-color: var(--accent);
+  background: var(--gradient-card);
+}
+
+.timeline-item.current .education-card::before { opacity: 1; }
+
+/* Current badge */
+.current-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(99, 102, 241, 0.15);
+  color: var(--accent-light);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  border: 1px solid var(--accent);
+  margin-bottom: 1rem;
+}
+
+.pulse-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: blink 1.2s ease-in-out infinite;
+}
+
+/* Card content */
+.edu-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.edu-degree {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.4rem;
+}
+
+.edu-institution {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.edu-institution i { color: var(--accent); font-size: 0.85rem; }
+
+.edu-period {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--accent-light);
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+  background: var(--tag-bg);
+  padding: 0.35rem 0.8rem;
+  border-radius: 20px;
+}
+
+/* Tags */
+.edu-details {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.edu-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 20px;
+  font-size: 0.83rem;
+  font-weight: 500;
+}
+
+.stream-tag {
+  background: var(--tag-bg);
+  color: var(--tag-color);
+}
+
+.grade-tag {
+  background: rgba(16, 185, 129, 0.12);
+  color: #10b981;
+}
+
+.grade-tag i { color: #10b981; }
+
+/* Responsive */
+@media (max-width: 600px) {
+  .timeline-item { gap: 1rem; }
+  .edu-card-header { flex-direction: column; }
+  .timeline-dot { width: 42px; height: 42px; font-size: 1rem; }
+}
